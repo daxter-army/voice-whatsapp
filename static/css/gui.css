@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Unica+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pragati+Narrow&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    font-family: 'Unica One', cursive;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 1000%;
+    background-repeat: no-repeat;
+    animation: gradient 20s ease infinite;
+    text-align: center;
+    color: whitesmoke;
+    position: relative;
+}
+
+h1 {
+    margin-top: 40px;
+    font-size: 5rem;
+}
+
+#wrapper {
+    padding-top: 15px;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s;
+    z-index: -1;
+}
+
+#main {
+    margin-top: 10vh;
+}
+
+#voice-select {
+    padding: 5px;
+    /* color: white; */
+    outline: none;
+    background: transparent;
+}
+
+#input-command {
+    font-family: 'Pragati Narrow', sans-serif;
+    color: white;
+    text-align: center;
+    font-size: 2.5rem;
+    /* border-radius: 10px; */
+    width: 70vh;
+    height: 4vh;
+    background-color: transparent;
+    outline: none;
+    /* opacity: 0.5; */
+    padding: 15px;
+    border: none;
+    /* border-bottom: 2px white solid; */
+}
+
+#btn-microphone {
+    color: white;
+    font-size: small;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    outline: none;
+    transition: 0.5s;
+    background-color: transparent;
+    /* border: 2px white solid; */
+    border: transparent;
+}
+
+/* animations */
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}

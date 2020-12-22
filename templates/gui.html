@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/all.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/gui.css')}}">
+    <title>Jarvis : gui</title>
+</head>
+<body>
+    <h1 style="text-align: center;">Jarvis</h1>
+    <div id="time" style="font-size: 1.5rem;"></div>
+    <div id="wrapper">
+        <audio id="audio-option" src="../static/sound/micOn.mp3" type="audio/mp3" autoplay></audio>
+        <p>Options</p>
+        <select id="voice-select" class="value-selector"></select>
+        <br>
+        <br>
+        <label for="rate">Rate Adjuster</label>
+        <div id="rate-value" class="badge">1</div>
+        <input type="range" id="rate" class="custom-range" min="0.5" max="2" value="1" step="0.1">
+        <br>
+        <label for="pitch">Pitch Adjuster</label>
+        <div id="pitch-value" class="badge">1</div>
+        <input type="range" id="pitch" class="custom-range" min="0" max="2" value="1" step="0.1" style="font-family:bodyFont;">
+    </div>
+    <div id="main">
+        <button id="btn-microphone"><i class="fas fa-microphone fa-4x"></i></button>
+        <br><br><br><br>
+        <input type="text" id="input-command" class="value-selector" />
+    </div>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+    <script>
+        const wrapper = document.querySelector('#wrapper');
+        const input = document.querySelector('#input-command');
+        const timeBlock = document.querySelector("#time");
+
+        input.addEventListener('click', () => {
+            wrapper.style.visibility = 'visible';
+            wrapper.style.opacity = 1;
+        })
+        
+        wrapper.addEventListener('dblclick', function() {
+            this.style.visibility = 'hidden';
+            this.style.opacity = 0;
+        
+        })
+        
+        const checkTime = (i) => {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+
+        function startTime() {
+            var today = new Date();
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+            // add a zero in front of numbers<10
+            m = checkTime(m);
+            s = checkTime(s);
+            document.getElementById('time').innerHTML = h + ":" + m + ":" + s;
+            t = setTimeout(function() {
+                    startTime();
+                }, 500);
+        }
+        startTime();
+
+    </script>
+</body>
+</html>
